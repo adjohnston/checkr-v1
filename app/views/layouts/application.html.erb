@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Checkr</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<%= yield %>
+    <title>Checkr</title>
 
-</body>
+    <%= stylesheet_link_tag :application, media: :screen %>
+
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <header id="banner" role="banner">
+        <h1><%= link_to 'Checkr', root_path, role: :link %></h1>
+      </header>
+
+      <section id="main" role="main">
+      
+        <%= yield %>
+
+      </section>
+
+      <footer id="contentinfo" role="contentinfo">
+        <p>Adam Johnston &copy; 2013</p>
+      </footer>
+
+      <%= javascript_include_tag :application %>
+
+    </div>
+  </body>
 </html>

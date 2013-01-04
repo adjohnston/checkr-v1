@@ -19,6 +19,18 @@
       </header>
 
       <section id="main" role="main">
+
+        <% if notice %>
+          <div id="notice">
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <% if alert %>
+          <div id="alert">
+            <%= alert %>
+          </div>
+        <% end %>
       
         <%= yield %>
 

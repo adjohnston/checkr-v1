@@ -1,12 +1,24 @@
-<h2>Forgot your password?</h2>
+<header>
+  <h1>Forgotten Password</h1>
+</header>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <fieldset>
+    <legend>Forgotten Password</legend>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
+    <ol>
+      <li>
+        <%= f.label :email, 'Email Address' %>
+        <%= f.email_field :email, placeholder: 'Email Address' %>
+      </li>
+
+      <li><%= f.submit "Reset Password" %></li>
+    </ol>
+  </fieldset>
 <% end %>
+
+<hr />
 
 <%= render "devise/shared/links" %>

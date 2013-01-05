@@ -3,7 +3,17 @@
 </header>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <% if resource.errors.count > 0 %>
+    <div id="errors">
+      <p>Oops! There was <%= pluralize(resource.errors.count, 'error') %></p>
+
+      <ul>
+        <% resource.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <fieldset>
     <legend>Forgotten Password</legend>

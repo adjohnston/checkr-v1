@@ -1,0 +1,43 @@
+<header>
+  <h1>My Account</h1>
+</header>
+
+<section id="user-details">
+  <header>
+    <h1>My Details</h1>
+  </header>
+
+  <dl>
+    <dt>Name</dt>
+    <dd><%= @user.name %></dd>
+
+    <dt>Username</dt>
+    <dd><%= @user.username %></dd>
+
+    <dt>Email Address</dt>
+    <dd><%= @user.email %></dd>
+
+    <dt>List Count</dt>
+    <dd>0</dd>
+  </dl>
+</section>
+
+<hr />
+
+<div>
+  <%= link_to 'Change my Details', edit_user_registration_path(@user), { class: [ :btn, :lrg ], role: :link } %>
+</div>
+
+<hr />
+
+<section id="delete-account">
+  <header>
+    <h1>Delete Account</h1>
+  </header>
+
+  <p>If you wish to delete your account, you can do so by clicking the button below. Please be aware that this change is permaneant, all information, lists and items will be lost and cannot this cannot be undone. To use the Checkr again you will need to sign up once more.</p>
+
+  <hr />
+
+  <%= link_to 'Delete my Account', registration_path(@user), { method: :delete, class: [ :btn, :sm, :warning ], role: :link } %>
+</section>

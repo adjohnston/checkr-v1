@@ -20,6 +20,10 @@
         <nav role="nav">
           <ul>
             <li>
+              <%= link_to 'My Account', user_signed_in? ? my_account_path : new_user_session_path, role: :link %>
+            </li>
+
+            <li>
               <% if !user_signed_in? %>
                 <%= link_to 'Login', new_user_session_path, role: :link %>
               <% else %>

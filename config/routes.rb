@@ -1,6 +1,12 @@
 Checkr::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users, path_names: { sign_in: 'login' }
+
+  as :user do
+    get 'my-account' => 'users#show', as: :my_account
+  end
+
+  resources :lists
 
   root to: 'home#index'
 

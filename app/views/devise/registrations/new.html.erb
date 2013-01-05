@@ -3,7 +3,17 @@
 </header>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <% if resource.errors.count > 0 %>
+    <div id="errors">
+      <p>Oops! There was <%= pluralize(resource.errors.count, 'error') %> stopping sign-up</p>
+
+      <ul>
+        <% resource.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <fieldset>
     <legend>New User</legend>

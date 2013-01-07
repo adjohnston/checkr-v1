@@ -17,8 +17,12 @@
       <header id="banner" role="banner">
         <h1><%= link_to 'Checkr', root_path, role: :link %></h1>
 
-        <nav role="nav">
+        <nav role="navigation">
           <ul>
+            <li>
+              <%= link_to 'My Lists', user_signed_in? ? lists_path : new_user_session_path, role: :link %>
+            </li>
+
             <li>
               <%= link_to 'My Account', user_signed_in? ? my_account_path : new_user_session_path, role: :link %>
             </li>

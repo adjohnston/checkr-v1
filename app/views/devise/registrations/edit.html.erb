@@ -35,17 +35,17 @@
       </li>
 
       <li>
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+        <%= f.label :password %> <small><i>leave blank if you don't want to change it</i></small>
         <%= f.password_field :password, :autocomplete => "off" %>
       </li>
 
       <li>
-        <%= f.label :password_confirmation %>
+        <%= f.label :password_confirmation, 'Confirm Password' %>
         <%= f.password_field :password_confirmation %>
       </li>
 
       <li>
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+        <%= f.label :current_password %> <small><i>we need your current password to confirm your changes</i></small>
         <%= f.password_field :current_password %>
       </li>
 

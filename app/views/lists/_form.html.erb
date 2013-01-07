@@ -1,0 +1,38 @@
+<%= form_for @list do |f| %>
+  <% if @list.errors.count > 0 %>
+    <div id="errors">
+      <p>Oops! There was <%= pluralize(@list.errors.count, 'error') %>
+
+      <ol>
+        <% @list.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+  
+  <fieldset>
+    <legend>List</legend>
+
+    <ol>
+      <li>
+        <%= f.label :name, 'List Name' %>
+        <%= f.text_field :name, placeholder: 'List Name' %>
+      </li>
+
+      <li>
+        <%= f.label :desc, 'Description' %>
+        <%= f.text_area :desc, { rows: 2, cols: 30, placeholder: 'Description' } %>
+      </li>
+
+      <li>
+        <%= f.check_box :is_public %>
+        <%= f.label :is_public, 'Make Public?' %> <small><i>by having this box checked, everyone can see this list, you may want to do this if you plan to share this list with others, for example a Christmas gift list.</i></small>
+      </li>
+
+      <li>
+        <%= f.submit %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>

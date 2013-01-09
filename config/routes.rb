@@ -10,7 +10,8 @@ Checkr::Application.routes.draw do
 
   root to: 'home#index'
 
-  get ':username' => 'lists#index', as: :user_list
+  get ':username' => 'lists#index', as: :user_lists
+  get ':username/:id' => 'lists#show', as: :user_list
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -6,7 +6,9 @@ Checkr::Application.routes.draw do
     get 'my-account' => 'users#show', as: :my_account
   end
 
-  resources :lists
+  resources :lists do
+    resources :items
+  end
 
   root to: 'home#index'
 

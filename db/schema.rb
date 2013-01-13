@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105091345) do
+ActiveRecord::Schema.define(:version => 20130110194749) do
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.string   "url"
+    t.boolean  "is_checked", :default => false
+    t.integer  "list_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "lists", :force => true do |t|
     t.string   "name"

@@ -1,7 +1,81 @@
 <header>
   <h1><%= @list.name %></h1>
+  <p><%= count_checked_items(@list) %></p>
 </header>
 
 <%= simple_format(@list.desc) %>
+
+<hr />
+
+<% if @items.any? %>
+
+  <section id="items">
+    <% @items.each do |item| %>
+      <article id="<%= item.id %>" role="article">
+        <%= form_for [@list, item], method: :put do |f| %>
+          <%= f.check_box :is_checked %>
+
+          <%= f.submit 'Save' %>
+        <% end %>
+
+        <h1><%= item.name %></h1>
+        <p><%= item.url %></p>
+        <%= simple_format(item.desc) %>
+      </article>
+
+      <hr />
+    <% end %>
+  </section>
+
+<% else %>
+
+  <p>No items have been created yet.</p>
+
+<% end %>
+
+<% if user_signed_in? %>
+  <header>
+    <h1>Add Item</h1>
+  </header>
+
+  <%= form_for [@list, @item] do |f| %>
+    <% if @item.errors.any? %>
+      <div id="errors">
+        <p>Oh no! There were <%= pluralize @item.errors.count, 'errors' %></p>
+
+        <ul>
+          <% @item.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Add Item</legend>
+      
+      <ol>
+        <li>
+          <%= f.label :name, 'Item Name' %>
+          <%= f.text_field :name, placeholder: 'Item Name' %>
+        </li>
+
+        <li>
+          <%= f.label :desc, 'Description' %>
+          <%= f.text_area :desc, { rows: 2, cols: 30, placeholder: 'Description' } %>
+        </li>
+
+        <li>
+          <%= f.label :url, 'Product URL' %>
+          <%= f.text_field :url, placeholder: 'Product URL' %>
+        </li>
+
+        <li>
+          <%= f.submit 'Add Item' %>
+        </li>
+      </ol>
+    </fieldset>
+  <% end %>
+<% end %>
 
 <hr />

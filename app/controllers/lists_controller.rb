@@ -15,12 +15,6 @@ class ListsController < ApplicationController
     @list = user_signed_in? ? current_user.lists.find(params[:id]) : User.find_by_username(params[:username]).lists.where('id = ? AND is_public = true', params[:id])
     @items = @list.items.all
     @item = @list.items.new
-
-    @list = if user_signed_in? 
-      current_user.lists.find(params[:id]) 
-    else 
-      User.find_by_username(params[:username]).lists.find(params[:id])
-    end
   end
 
   def new
@@ -31,7 +25,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.new(params[:list])
 
     if @list.save
-      redirect_to list_path(@list.id), notice: 'Your new list has been created'
+      redirect_to list_path(@list.id), notice: "#{@list.name} has been created"
     else
       render :new
     end

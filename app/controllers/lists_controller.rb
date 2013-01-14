@@ -17,12 +17,6 @@ class ListsController < ApplicationController
                                                                      .lists.where('id = ? AND is_public = true', params[:id])
     @items = @list.items.all
     @item = @list.items.new
-
-    @list = if user_signed_in? 
-      current_user.lists.find(params[:id]) 
-    else 
-      User.where(username: params[:username]).lists.find(params[:id])
-    end
   end
 
   def new

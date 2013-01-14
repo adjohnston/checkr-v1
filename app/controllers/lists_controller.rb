@@ -8,15 +8,14 @@ class ListsController < ApplicationController
   end
 
   def index
-    @lists = user_signed_in? ? current_user.lists : User.where(username: params[:username])
-                                                    .lists.where(is_checked: true)
+    @lists = user_signed_in? ? current_user.lists : User.where(username: params[:username]).first.lists.where(is_public: true)
   end
 
   def show
-    @list = user_signed_in? ? current_user.lists.find(params[:id]) : User.where(username: params[:username])
-                                                                     .lists.where('id = ? AND is_public = true', params[:id])
+    @list = user_signed_in? ? current_user.lists.find(params[:id]) : User.where(username: params[:username]).first
+                                                                     .lists.find(params[:id])
     @items = @list.items.all
-    @item = @list.items.new
+    @item = @list.items.build
   end
 
   def new

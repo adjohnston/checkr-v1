@@ -13,7 +13,8 @@ Checkr::Application.routes.draw do
   root to: 'home#index'
 
   get ':username' => 'lists#index', as: :user_lists
-  get ':username/:id' => 'lists#show', as: :user_list
+  get ':username/:name' => 'lists#show', as: :user_list
+  put ':user/:list/:id' => 'items#update_checkbox', as: :update_checkbox
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -13,7 +13,7 @@
     <article id="list-<%= list.id %>">
       <header>
         <h1>
-          <%= link_to list.name, user_signed_in? ? list_path(list) : user_list_path(params[:username], list.id), role: :link %>
+          <%= link_to list.name, user_signed_in? ? list_path(list) : user_list_path(params[:username], list.name.gsub(' ', '-')), role: :link %>
         </h1>
         <p><%= count_checked_items(list) %></p>
       </header>

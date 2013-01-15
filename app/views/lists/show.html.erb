@@ -1,3 +1,7 @@
+<%= link_to 'Back to Lists', :back, role: :link %>
+
+<hr />
+
 <header>
   <h1><%= @list.name %></h1>
   <p><%= count_checked_items(@list) %></p>
@@ -12,10 +16,14 @@
   <section id="items">
     <% @items.each do |item| %>
       <article id="<%= item.id %>" role="article">
-        <%= form_for [@list, item], method: :put do |f| %>
-          <%= f.check_box :is_checked %>
+        <%= form_for item, url: update_checkbox_path(@list.user_id, @list.id, item.id), method: :put do |f| %>
+          <fieldset>
+            <ol>
+              <li><%= f.check_box :is_checked %></li>
 
-          <%= f.submit 'Save' %>
+              <li><%= f.submit 'Save' %></li>
+            </ol>
+          </fieldset>
         <% end %>
 
         <h1><%= item.name %></h1>

@@ -13,9 +13,9 @@ class ListsController < ApplicationController
 
   def show
     @list = user_signed_in? ? current_user.lists.find(params[:id]) : User.where(username: params[:username]).first
-                                                                     .lists.find(params[:id])
-    @items = @list.items.all
-    @item = @list.items.build
+                                                                     .lists.where(name: params[:name].gsub('-', ' ')).first
+    @items = @list.items.all(order: :created_at)
+    @item = @list.items.new
   end
 
   def new

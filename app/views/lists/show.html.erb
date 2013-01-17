@@ -29,6 +29,13 @@
         <h1><%= item.name %></h1>
         <p><%= item.url %></p>
         <%= simple_format(item.desc) %>
+
+        <% if user_signed_in? %>
+          <ul class="admin">
+            <li><%= link_to :edit, edit_list_item_path(item.list_id, item), role: :link %></li>
+            <li><%= link_to :delete, list_item_path(item.list_id, item), { method: :delete, role: :link } %></li>
+          </ul>
+        <% end %>
       </article>
 
       <hr />

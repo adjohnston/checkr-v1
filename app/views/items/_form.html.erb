@@ -1,0 +1,40 @@
+<%= form_for [@list, @item] do |f| %>
+  <% if @item.errors.any? %>
+    <div id="errors">
+      <p>Oh no! There were <%= pluralize @item.errors.count, 'errors' %></p>
+
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Item</legend>
+
+    <%= f.hidden_field :is_checked %>
+    
+    <ol>
+      <li>
+        <%= f.label :name, 'Item Name' %>
+        <%= f.text_field :name, placeholder: 'Item Name' %>
+      </li>
+
+      <li>
+        <%= f.label :desc, 'Description' %>
+        <%= f.text_area :desc, { rows: 2, cols: 30, placeholder: 'Description' } %>
+      </li>
+
+      <li>
+        <%= f.label :url, 'Product URL' %>
+        <%= f.text_field :url, placeholder: 'Product URL' %>
+      </li>
+
+      <li>
+        <%= f.submit 'Add Item' %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>

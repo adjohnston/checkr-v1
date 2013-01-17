@@ -1,11 +1,15 @@
 class ItemsController < ApplicationController
 
+  before_filter :authenticate_user!, only: [:new, :edit, :destroy]
+
   def new
-    @item = current_user.lists.find(params[:list_id]).items.new
+    @list = List.find(params[:list_id])
+    @item = @list.items.new
   end
 
   def create
-    @item = current_user.lists.find(params[:list_id]).items.new(params[:item])
+    @list = List.find(params[:list_id])
+    @item = @list.items.new(params[:item])
 
     if @item.save
       redirect_to list_path(@item.list_id), notice: "#{@item.name} has been added"
@@ -31,13 +35,14 @@ class ItemsController < ApplicationController
 
   def update_checkbox
     @item = User.find(params[:user]).lists.find(params[:list]).items.find(params[:id])
-    @username = User.find(params[:user]).username
+    list_name = List.find(@item.list_id).name.gsub(' ', '-')
+    username = User.find(params[:user]).username
 
     if @item.update_attributes(params[:item])
-      redirect_to user_signed_in? ? list_path(@item.list_id) : user_list_path(@username, @item.list_id)
+      redirect_to user_signed_in? ? list_path(@item.list_id) : user_list_path(username, list_name)
     else
-      redirect_to user_signed_in? ? list_path(@item.list_id) : user_list_path(@username, @item.list_id), 
-                  alert: 'There was an error, please try again later'
+      redirect_to user_signed_in? ? list_path(@item.list_id) : user_list_path(username, list_name), 
+        alert: 'There was an error, please try again later'
     end
   end
 

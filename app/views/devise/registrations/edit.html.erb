@@ -49,11 +49,11 @@
         <%= f.password_field :current_password, placeholder: 'Current Password' %>
       </li>
 
-      <li><%= f.submit "Update" %></li>
+      <li><%= f.submit "Update", class: [:btn, 'btn-cta'] %></li>
     </ol>
   </fieldset>
 <% end %>
 
 <hr />
 
-<%= link_to "Back", :back, class: :btn %>
+<%= link_to "Back to My Account", my_account_path, class: :btn %>

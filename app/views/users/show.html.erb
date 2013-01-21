@@ -24,9 +24,7 @@
 
 <hr />
 
-<p>
-  <%= link_to 'Change my Details', edit_user_registration_path(@user), { class: [ :btn, :lrg ], role: :link } %>
-</p>
+<%= link_to 'Change my Details', edit_user_registration_path(@user), { class: [ :btn, 'btn-lrg' ], role: :link } %>
 
 <hr />
 
@@ -39,7 +37,5 @@
 
   <hr />
 
-  <p>
-    <%= link_to 'Delete my Account', registration_path(@user), { method: :delete, class: [ :btn, :sm, :warning ], role: :link } %>
-  </p>
+  <%= link_to 'Delete my Account', registration_path(@user), { method: :delete, class: [ :btn, 'btn-warn' ], role: :link } %>
 </section>

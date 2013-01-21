@@ -24,13 +24,11 @@
         </li>
       <% end -%>
 
-      <li><%= f.submit :Login, class: [:btn, :lrg, :cta] %></li>
+      <li><%= f.submit :Login, class: [:btn, 'btn-lrg', 'btn-cta'] %></li>
     </ol>
   </fieldset>
 <% end %>
 
 <hr />
 
-<p>
-  <%= render 'devise/shared/links' %>
-</p>
+<%= render 'devise/shared/links' %>

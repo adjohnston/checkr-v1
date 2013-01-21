@@ -28,7 +28,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.new(params[:list])
 
     if @list.save
-      redirect_to list_path(@list.id), notice: "#{@list.name} has been created"
+      redirect_to list_path(hyphenate(@list.name)), notice: "#{@list.name} has been created"
     else
       render :new
     end
@@ -39,7 +39,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update_attributes(params[:list])
-      redirect_to lists_path(@list.id), notice: "#{@list.name} has been updated"
+      redirect_to lists_path(hyphenate(@list.name)), notice: "#{@list.name} has been updated"
     else
       render :edit
     end

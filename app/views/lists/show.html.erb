@@ -26,9 +26,11 @@
           </fieldset>
         <% end %>
 
-        <h1><%= item.name %></h1>
-        <p><%= item.url %></p>
-        <%= simple_format(item.desc) %>
+        <div class="item-details">
+          <h1><%= item.name %></h1>
+          <%= raw("<p class=\"item-url\">#{item.url}</p>") %>
+          <%= simple_format(item.desc) if item.desc? %>
+        </div>
 
         <% if user_signed_in? %>
           <ul class="admin">

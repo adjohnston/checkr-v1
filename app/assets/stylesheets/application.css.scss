@@ -22,10 +22,12 @@ $dark:  #404a52;
 /* mixins */
 
 body { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
+h1   { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; font-weight: 700; text-align: center; }
 hr   { margin: -1px .75em; border: 2px dotted $grey; border-bottom: 0; border-color: $grey white white $grey; }
 p    { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; text-align: justify; }
 a    { text-decoration: none; color: inherit; }
 
+legend { display: none; }
 label { 
   display: none;
 

@@ -5,5 +5,4 @@ class List < ActiveRecord::Base
   attr_accessible :desc, :is_public, :name, :user_id
 
   validates :name, presence: true
-  validates :name, uniqueness: true
 end

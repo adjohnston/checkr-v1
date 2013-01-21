@@ -12,8 +12,10 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = user_signed_in? ? current_user.lists.find(params[:id]) : User.where(username: params[:username]).first
-                                                                     .lists.where(name: params[:name].gsub('-', ' ')).first
+    @list = user_signed_in? ? current_user.lists.where(name: spacify(params[:id])).first :
+                              User.where(username: params[:username]).first
+                              .lists.where(name: spacify(params[:name])).first
+
     @items = @list.items.all(order: :created_at)
     @item = @list.items.new
   end

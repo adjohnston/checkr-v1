@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item = @list.items.new(params[:item])
 
     if @item.save
-      redirect_to list_path(@item.list_id), notice: "#{@item.name} has been added"
+      redirect_to list_path(hyphenate(@list.name)), notice: "#{@item.name} has been added"
     else
       render :new
     end
@@ -24,10 +24,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = current_user.lists.find(params[:list_id]).items.find(params[:id])
+    @list = current_user.lists.find(params[:list_id])
+    @item = @list.items.find(params[:id])
 
     if @item.update_attributes(params[:item])
-      redirect_to list_path(@item.list_id), notice: "#{@item.name} updated"
+      redirect_to list_path(hyphenate(@list.name)), notice: "#{@item.name} updated"
     else
       render :edit
     end
@@ -50,8 +51,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = current_user.lists.find(params[:list_id]).items.find(params[:id])
-    redirect_to list_item_path(@item.list_id, @item.id), notice: 'Your item was deleted' if @item.delete
+    @list = current_user.lists.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+    redirect_to list_item_path(hyphen(@list.name), @item.id), notice: 'Your item was deleted' if @item.delete
   end
 
 end

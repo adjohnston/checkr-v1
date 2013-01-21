@@ -14,25 +14,43 @@
 
 /* variables */
 
-$grey:  #f5f5f5;
+$grey:  #eee;
 $green: #b4c596;
 $red:   #eb6464;
 $dark:  #404a52;
 
 /* mixins */
 
-body { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
-h1   { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; font-weight: 700; text-align: center; }
-hr   { margin: -1px .75em; border: 2px dotted $grey; border-bottom: 0; border-color: $grey white white $grey; }
-p    { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; text-align: justify; }
-a    { text-decoration: none; color: inherit; }
+@mixin border-box { 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
+body   { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
+h1     { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; font-weight: 700; text-align: center; }
+hr     { margin: -1px .75em; border: 2px dotted $grey; border-bottom: 0; border-color: $grey white white $grey; }
+p      { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; text-align: justify; }
+a      { text-decoration: none; color: inherit; }
+small  { font-size: 0.75em; line-height: 2em; }
+i      { font-style: italic; }
 legend { display: none; }
-label { 
+label  { 
   display: none;
-
   &.show-label { display: inline-block; }
 }
+fieldset {
+  li { padding: .75em; }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] { font: 300 .875em/2.5725em roboto, "helvetica neue", helvetica, arial, sans-serif; width: 100%;
+                      height: 2.5725em; padding: 0; border: 1px solid $grey; border-radius: 4px; text-align: center; 
+                      display: block; @include border-box; }
+
 
 header[role="banner"] {
   h1 { margin: 0.42875em 0; padding: 0 0.21437em; 
@@ -48,7 +66,7 @@ footer[role="contentinfo"] {
 .hide-mobile { display: none; }
 
 .btn { 
-  margin: .8575em; margin-right: 0; padding: .3571em .4286em; 
+  margin: .8575em 0; padding: .3571em .4286em; 
   font: 500 .875em/1.715em roboto, "helvetica neue", helvetica, arial, sans-serif; background-color: $grey; 
   border: 1px solid darken($grey, 10%); border-radius: 4px; box-shadow: inset 0 1px 0 lighten($grey, 10%); 
   text-shadow: 0 -1px 0 lighten($grey, 10%); text-decoration: none; color: darken($grey, 50%); cursor: pointer;
@@ -57,7 +75,7 @@ footer[role="contentinfo"] {
   &:hover { border-color: darken($grey, 20%); color: darken($grey, 70%); }
 }
 
-.btn-lrg  { margin: .75em; margin-right: 0; padding: .6875em .75em; font-size: 1em; line-height: 1.5em; }
+.btn-lrg  { margin: .75em 0; margin-right: 0; padding: .6875em .75em; font-size: 1em; line-height: 1.5em; }
 
 .btn-cta  { 
   background-color: $green; border-color: darken($green, 10%); box-shadow: inset 0 1px 0 lighten($green, 10%);

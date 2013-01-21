@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require reset
+ *= require_self
+*/
+
+/*$dark: #002c2b;
+$grey: #eee;
+$green: #c3dbb4;
+$blue: #3299bb;
+
+@mixin trans($val, $time: .3s, $ease: ease) { 
+  -moz-transition: $val $time $ease; 
+  -webkit-transition: $val $time $ease;
+  -o-transition: $val $time $ease; 
+  -ms-transition: $val $time $ease; 
+  transition: $val $time $ease; }
+
+@mixin grad($col1, $col2) {
+  background: -moz-linear-gradient($col1, $col2);
+  background: -webkit-linear-gradient($col1, $col2);
+  background: -ms-linear-gradient($col1, $col2);
+  background: -o-linear-gradient($col1, $col2);
+  background: linear-gradient($col1, $col2);
+}
+
+@mixin border-box { 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+@mixin sticky($top: 0px) {
+  position: -moz-sticky;
+  position: -webkit-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: $top;
+}
+
+body { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
+hr   { margin: -1px .75em; }
+h1   { margin: 1.2em 0; padding: 0 0.6em; font-size: 1.25em; line-height: 2.4em; font-weight: bold; text-align: center; }
+p    { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; text-align: justify; }
+
+.btn { 
+  margin: .8575em; padding: 0.785714em 0.8575em; font-size: 0.875em; line-height: 1.715em; background-color: $grey;
+  border: 1px solid darken($grey, 10%); border-radius: 3px; box-shadow: inset 0 1px 0 lighten($grey, 10%); 
+  font-weight: 400; text-shadow: 0 -1px 0 lighten($grey, 10%); text-decoration: none; color: darken($grey, 50%); 
+  display: inline-block; @include border-box; @include trans();
+
+  &:hover { border-color: darken($grey, 30%); color: darken($grey, 70%); } 
+}
+
+.cta { 
+  background-color: $green; border-color: darken($green, 10%); box-shadow: inset 0 1px 0 lighten($green, 10%);
+  text-shadow: 0 -1px 0 lighten($green, 10%); color: darken($green, 50%); 
+
+  &:hover { border-color: darken($green, 30%); } 
+}
+
+#list-count { 
+  margin: -1.5em 0 1.5em; text-align: center;
+
+  span { font-size: 0.75em; line-height: 2em; width: 2em; background-color: $grey; border-radius: 50%; text-align: center;
+         position: relative; top: -2px; display: inline-block; }
+}*/

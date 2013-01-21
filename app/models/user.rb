@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
 
   validates :username, :name, presence: true
   validates :username, uniqueness: true
+  validates :username, format: { with: %r{^\S*$} }
 end

@@ -39,9 +39,12 @@ class ItemsController < ApplicationController
     username = User.find(params[:user]).username
 
     if @item.update_attributes(params[:item])
-      redirect_to user_signed_in? ? list_path(@item.list_id) : user_list_path(username, list_name)
+      respond_to do |format|
+        format.html { redirect_to user_signed_in? ? list_path(list_name) : user_list_path(username, list_name) }
+        format.js {}
+      end
     else
-      redirect_to user_signed_in? ? list_path(@item.list_id) : user_list_path(username, list_name), 
+      redirect_to user_signed_in? ? list_path(list_name) : user_list_path(username, list_name), 
         alert: 'There was an error, please try again later'
     end
   end

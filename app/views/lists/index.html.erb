@@ -1,19 +1,22 @@
 <header>
   <h1>My Lists</h1>
-  <p><%= @lists.count %> lists</p>
+  <div id="list-count"><span><%= @lists.count %></span> lists</div>
 </header>
+
+<hr />
 
 <%= link_to 'Add a List', new_list_path, { class: %w[btn lrg cta], role: :link } if user_signed_in? %>
 
 <hr />
 
-<% if !@lists.nil? %>
+<% if @lists.any? %>
 
   <% @lists.each do |list| %>
     <article id="list-<%= list.id %>">
       <header>
         <h1>
-          <%= link_to list.name, user_signed_in? ? list_path(list) : user_list_path(params[:username], list.name.gsub(' ', '-')), role: :link %>
+          <%= link_to list.name, user_signed_in? ? list_path(hyphenate(list.name)) : 
+                                                   user_list_path(params[:username], hyphenate(list.name)), role: :link %>
         </h1>
         <p><%= count_checked_items(list) %></p>
       </header>

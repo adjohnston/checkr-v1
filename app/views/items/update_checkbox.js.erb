@@ -1,0 +1,5 @@
+<% if @item.is_checked %>
+  $('.checked-items-count').text(parseInt($('.checked-items-count').text(), 10) + 1);
+<% else %>
+  $('.checked-items-count').text(parseInt($('.checked-items-count').text(), 10) - 1);
+<% end %>

@@ -6,6 +6,7 @@
 
     <title>Checkr</title>
 
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Lemon' rel='stylesheet' />
     <%= stylesheet_link_tag :application, media: :screen %>
 
     <%= csrf_meta_tags %>
@@ -20,18 +21,18 @@
         <nav role="navigation">
           <ul>
             <li>
-              <%= link_to 'My Lists', user_signed_in? ? lists_path : new_user_session_path, role: :link %>
+              <%= link_to raw('<span class="icon-lists"></span><span class="hide-mobile">My </span>Lists'), user_signed_in? ? lists_path : new_user_session_path, role: :link %>
             </li>
 
             <li>
-              <%= link_to 'My Account', user_signed_in? ? my_account_path : new_user_session_path, role: :link %>
+              <%= link_to raw('<span class="icon-account"></span><span class="hide-mobile">My </span>Account'), user_signed_in? ? my_account_path : new_user_session_path, role: :link %>
             </li>
 
             <li>
               <% if !user_signed_in? %>
-                <%= link_to 'Login', new_user_session_path, role: :link %>
+                <%= link_to raw('<span class="icon-login"></span>Login'), new_user_session_path, role: :link %>
               <% else %>
-                <%= link_to 'Logout', destroy_user_session_path, { method: :delete, role: :link } %>
+                <%= link_to raw('<span class="icon-logout"></span>Logout'), destroy_user_session_path, { method: :delete, role: :link } %>
               <% end %>
             </li>
           </ul>

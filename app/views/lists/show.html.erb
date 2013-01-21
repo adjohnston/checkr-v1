@@ -1,4 +1,4 @@
-<%= link_to 'Back to Lists', lists_path, role: :link %>
+<%= link_to 'Back to Lists', lists_path, { class: :btn, role: :link } %>
 
 <hr />
 
@@ -16,7 +16,7 @@
   <section id="items">
     <% @items.each do |item| %>
       <article id="<%= item.id %>" role="article">
-        <%= form_for item, url: update_checkbox_path(@list.user_id, @list.id, item.id), method: :put do |f| %>
+        <%= form_for item, { remote: true, url: update_checkbox_path(@list.user_id, @list.id, item.id), method: :put } do |f| %>
           <fieldset>
             <ol>
               <li><%= f.check_box :is_checked %></li>

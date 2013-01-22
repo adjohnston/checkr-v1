@@ -22,18 +22,32 @@ $dark:  #404a52;
 /* mixins */
 
 @mixin border-box { 
-  -moz-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
+  -ms-box-sizing:     border-box;
+  -o-box-sizing:      border-box;
+  box-sizing:         border-box;
+}
+
+@mixin transition($attr) {
+  -moz-transition:    $attr ease;
+  -webkit-transition: $attr ease;
+  -ms-transition:     $attr ease;
+  -o-transition:      $attr ease;
+  transition:         $attr ease;
 }
 
 body   { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
 h1     { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; font-weight: 700; text-align: center; }
 hr     { margin: -1px .75em; border: 2px dotted $grey; border-bottom: 0; border-color: $grey white white $grey; }
-p      { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; text-align: justify; }
-a      { text-decoration: none; color: inherit; }
+p      { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; }
+ul     { overflow: hidden; }
+a      { 
+  text-decoration: none; color: inherit; @include transition(color .5s);
+
+  &.cta:hover  { color: $green; }
+  &.warn:hover { color: $red; }
+}
 small  { font-size: 0.75em; line-height: 2em; }
 i      { font-style: italic; }
 legend { display: none; }
@@ -47,14 +61,35 @@ fieldset {
 
 input[type="text"],
 input[type="password"],
-input[type="email"] { font: 300 .875em/2.5725em roboto, "helvetica neue", helvetica, arial, sans-serif; width: 100%;
-                      height: 2.5725em; padding: 0; border: 1px solid $grey; border-radius: 4px; text-align: center; 
-                      display: block; @include border-box; }
+input[type="email"],
+select,
+textarea { font: 300 .875em/2.5725em roboto, "helvetica neue", helvetica, arial, sans-serif; width: 100%;
+           height: 2.5725em; margin: 0; padding: 0; border: 1px solid $grey; border-radius: 4px; text-align: center; 
+           display: block; @include border-box; }
+
+textarea { 
+  height: 7.7175em; resize: none; 
+
+  &:focus { text-align: left; }
+}
 
 
 header[role="banner"] {
   h1 { margin: 0.42875em 0; padding: 0 0.21437em; 
        font: 3.5em/1.715em satisfy, "helvetica neue", helvetica, arial, sans-serif; text-align: center; }
+}
+
+article{
+  header {
+    h1 { margin: 1em 0 0; padding: 0 0.5em; font-size: 1.5em; line-height: 2em; font-weight: 300; text-align: left; }
+    p  { margin: 0; padding: 0 1em; font-size: 0.75em; line-height: 2em; margin-top: 0; color: lighten($dark, 20%); }
+  }
+
+  .admin {  
+    background-color: $grey;
+
+    li { margin: 1em 0; padding: 0 0 0 1em; font-size: 0.75em; line-height: 2em; float: left; }
+  }
 }
 
 footer[role="contentinfo"] {
@@ -73,6 +108,7 @@ footer[role="contentinfo"] {
   display: inline-block;
 
   &:hover { border-color: darken($grey, 20%); color: darken($grey, 70%); }
+  &.pad { margin-right: .4286em; margin-left: .4286em; }
 }
 
 .btn-lrg  { margin: .75em 0; margin-right: 0; padding: .6875em .75em; font-size: 1em; line-height: 1.5em; }
@@ -90,3 +126,6 @@ footer[role="contentinfo"] {
 
   &:hover { border-color: darken($red, 20%); color: lighten($red, 70%); }
 }
+
+.btn-link { margin: 1.5em .375em; font-size: 2em; line-height: 1.5em; width: 1.5em; background-color: $grey; 
+            border-radius: 50%; text-align: center; color: #fff; float: left; }

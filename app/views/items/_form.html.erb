@@ -23,17 +23,17 @@
       </li>
 
       <li>
-        <%= f.label :desc, 'Description' %>
-        <%= f.text_area :desc, { rows: 2, cols: 30, placeholder: 'Description' } %>
-      </li>
-
-      <li>
         <%= f.label :url, 'Product URL' %>
         <%= f.text_field :url, placeholder: 'Product URL' %>
       </li>
 
       <li>
-        <%= f.submit class: [:btn, 'btn-cta'] %>
+        <%= f.label :desc, 'Description' %>
+        <%= f.text_area :desc, { rows: 2, cols: 30, placeholder: 'Description' } %>
+      </li>
+
+      <li>
+        <%= f.submit class: %w[btn btn-cta] %>
       </li>
     </ol>
   </fieldset>

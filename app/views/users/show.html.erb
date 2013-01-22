@@ -2,7 +2,9 @@
   <h1>My Account</h1>
 </header>
 
-<section id="user-details">
+<hr />
+
+<article id="user-details">
   <header>
     <h1>My Details</h1>
   </header>
@@ -20,15 +22,15 @@
     <dt>List Count</dt>
     <dd><%= @user.lists.count %></dd>
   </dl>
-</section>
+
+  <hr />
+
+  <%= link_to 'Change my Details', edit_user_registration_path(@user), { class: %w[btn btn-lrg pad], role: :link } %>
+</article>
 
 <hr />
 
-<%= link_to 'Change my Details', edit_user_registration_path(@user), { class: [ :btn, 'btn-lrg' ], role: :link } %>
-
-<hr />
-
-<section id="delete-account">
+<article id="delete-account">
   <header>
     <h1>Delete Account</h1>
   </header>
@@ -37,5 +39,5 @@
 
   <hr />
 
-  <%= link_to 'Delete my Account', registration_path(@user), { method: :delete, class: [ :btn, 'btn-warn' ], role: :link } %>
-</section>
+  <%= link_to 'Delete my Account', registration_path(@user), { method: :delete, class: %w[btn btn-warn pad], role: :link } %>
+</article>

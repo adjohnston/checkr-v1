@@ -23,7 +23,7 @@
         <p><%= count_checked_items(list) %></p>
       </header>
 
-      <%= simple_format list.desc %>
+      <%= simple_format(list.desc, class: :desc) %>
 
       <% if user_signed_in? %>
         <div class="admin">

@@ -21,18 +21,18 @@
         <nav role="navigation">
           <ul>
             <li>
-              <%= link_to raw('<span class="icon-list"></span><span class="hide-mobile">My Lists</span>'), user_signed_in? ? lists_path : new_user_session_path, { title: 'my lists', role: :link } %>
+              <%= link_to raw('<span class="icon icon-list"></span><span class="hide-mobile">My Lists</span>'), user_signed_in? ? lists_path : new_user_session_path, { title: 'my lists', role: :link } %>
             </li>
 
             <li>
-              <%= link_to raw('<span class="icon-account"></span><span class="hide-mobile">My Account</span>'), user_signed_in? ? my_account_path : new_user_session_path, { title: 'my account', role: :link } %>
+              <%= link_to raw('<span class="icon icon-account"></span><span class="hide-mobile">My Account</span>'), user_signed_in? ? my_account_path : new_user_session_path, { title: 'my account', role: :link } %>
             </li>
 
             <li>
               <% if !user_signed_in? %>
-                <%= link_to raw('<span class="icon-login"></span><span class="hide-mobile">Login</span>'), new_user_session_path, { title: :login, role: :link } %>
+                <%= link_to raw('<span class="icon icon-login"></span><span class="hide-mobile">Login</span>'), new_user_session_path, { title: :login, role: :link } %>
               <% else %>
-                <%= link_to raw('<span class="icon-logout"></span><span class="hide-mobile">Logout</span>'), destroy_user_session_path, { title: :logout, method: :delete, role: :link } %>
+                <%= link_to raw('<span class="icon icon-logout"></span><span class="hide-mobile">Logout</span>'), destroy_user_session_path, { title: :logout, method: :delete, role: :link } %>
               <% end %>
             </li>
           </ul>

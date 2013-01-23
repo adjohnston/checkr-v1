@@ -9,17 +9,7 @@
   font-style: normal;
 }
 
-.icon-list:before, .icon-account:before, .icon-login:before, .icon-logout:before {
-  font-family: 'CheckrIcons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1.5em;
-  width: 1.5em;
-  display: block;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-}
+.icon { font-family: 'CheckrIcons'; speak: none; display: inline-block; float: left; -webkit-font-smoothing: antialiased; }
 
 .icon-list:before {
   content: "\e000";

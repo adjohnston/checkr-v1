@@ -40,15 +40,15 @@ $dark:  #404a52;
 
 :focus { outline: 0; }
 
-body   { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
-h1     { text-align: center; }
-hr     { margin: -1px .75em; border: 1px solid $grey; border-color: $grey white white $grey; }
-p      { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; }
+body { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
+h1 { text-align: center; }
+hr { margin: -1px .75em; border: 1px solid $grey; border-color: $grey white white $grey; }
+p { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; }
 dl { margin: 1.5em 0; overflow: hidden; }
 dt { padding: 0 0.75em; font-weight: 400; @include border-box; }
 dd { padding: 0 0.75em; @include border-box; }
-ul     { overflow: hidden; }
-a      { 
+ul { overflow: hidden; }
+a { 
   text-decoration: none; color: inherit; @include transition(color .5s);
 
   &.cta:hover  { color: $green; }
@@ -97,8 +97,12 @@ header[role="banner"] {
     li { margin: 0 2px 0 0; float: left; }
     a { 
       margin: 1.8125em 0; padding: .375em; border: 1px solid darken($dark, 10%); border-radius: 4px;
-      box-shadow: inset 1px 1px 0 lighten($dark, 10%), inset -1px -1px 0 lighten($dark, 10%); display: block; 
-      overflow: hidden; @include border-box; 
+      box-shadow: inset 1px 1px 0 lighten($dark, 5%), inset -1px -1px 0 lighten($dark, 5%); display: block; 
+      overflow: hidden; @include border-box; @include transition((background-color .5s, border-color .5s, box-shadow .5s));
+
+      &:hover { background-color: lighten($dark, 10%); border-color: darken($dark, 20%); 
+                box-shadow: inset 1px 1px 0 lighten($dark, 5%), inset -1px -1px 0 lighten($dark, 5%), 
+                inset 0 0 10px darken($dark, 5%), 0 1px 3px darken($dark, 10%); }
     }
     .icon { width: 1.5em; text-align: center; }
   }

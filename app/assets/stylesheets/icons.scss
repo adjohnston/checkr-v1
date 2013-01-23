@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'CheckrIcons';
   src: url(font-path('CheckrIcons.eot'));
-  src: url(font-path('CheckrIcons.eot') + '?#iefix') format('embedded-opentype'),
-       url(font-path('CheckrIcons.svg') + '#CheckrIcons') format('svg'),
+  src: url(font-path('CheckrIcons.svg') + '#CheckrIcons') format('svg'),
+       url(font-path('CheckrIcons.eot') + '?#iefix') format('embedded-opentype'),
        url(font-path('CheckrIcons.woff')) format('woff'),
        url(font-path('CheckrIcons.ttf')) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-.icon { font-family: 'CheckrIcons'; speak: none; display: inline-block; float: left; -webkit-font-smoothing: antialiased; }
+.icon { font-family: 'CheckrIcons'; speak: none; display: inline; float: left; -webkit-font-smoothing: antialiased; }
 
 .icon-list:before {
   content: "\e000";

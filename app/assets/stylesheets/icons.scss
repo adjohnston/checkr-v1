@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'CheckrIcons';
+  src: url(font-path('CheckrIcons.eot'));
+  src: url(font-path('CheckrIcons.eot') + '?#iefix') format('embedded-opentype'),
+       url(font-path('CheckrIcons.svg') + '#CheckrIcons') format('svg'),
+       url(font-path('CheckrIcons.woff')) format('woff'),
+       url(font-path('CheckrIcons.ttf')) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-list:before, .icon-account:before, .icon-login:before, .icon-logout:before {
+  font-family: 'CheckrIcons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.5em;
+  width: 1.5em;
+  display: block;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-list:before {
+  content: "\e000";
+}
+.icon-account:before {
+  content: "\e001";
+}
+.icon-login:before {
+  content: "\e002";
+}
+.icon-logout:before {
+  content: "\e003";
+}

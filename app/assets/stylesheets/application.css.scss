@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require reset
+ *= require icons
  *= require_self
 */
 
@@ -36,6 +37,8 @@ $dark:  #404a52;
   -o-transition:      $attr ease;
   transition:         $attr ease;
 }
+
+:focus { outline: 0; }
 
 body   { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
 h1     { text-align: center; }
@@ -72,15 +75,27 @@ textarea { font: 300 .875em/2.5725em roboto, "helvetica neue", helvetica, arial,
            display: block; @include border-box; }
 
 textarea { 
-  height: 7.7175em; resize: none; 
+  height: 7.7175em; resize: none; line-height: 1.715em; 
 
   &:focus { text-align: left; }
 }
 
 
 header[role="banner"] {
-  h1 { margin: 0.42875em 0; padding: 0 0.21437em; 
-       font: 3.5em/1.715em satisfy, "helvetica neue", helvetica, arial, sans-serif; text-align: center; }
+  background-color: $dark; color: #fff; overflow: hidden;
+
+  h1 { margin: .75em 0; padding: 0 0 0 .375em; font: 2em/1.5em satisfy, "helvetica neue", helvetica, arial, sans-serif; 
+       text-align: left; float: left; @include border-box; }
+
+  nav {
+    float: right;
+
+    ol   { overflow: hidden; }
+    li   { margin: 0 2px 0 0; float: left; }
+    a    { margin: 1.875em 0; padding: .375em; border: 1px solid darken($dark, 10%); border-radius: 4px;
+           box-shadow: inset 1px 1px 0 lighten($dark, 10%), inset -1px -1px 0 lighten($dark, 10%); display: block; 
+           @include border-box; }
+  }
 }
 
 section {
@@ -130,6 +145,7 @@ footer[role="contentinfo"] {
   background-color: $grey; border: 1px solid darken($grey, 10%); border-radius: 4px; 
   box-shadow: inset 0 1px 0 lighten($grey, 10%); text-shadow: 0 -1px 0 lighten($grey, 10%); text-decoration: none; 
   color: darken($grey, 50%); cursor: pointer; display: inline-block; @include border-box;
+  @include transition((color .5s, border-color .5s));
 
   &:hover { border-color: darken($grey, 20%); color: darken($grey, 70%); }
   &.pad { margin-right: .4286em; margin-left: .4286em; }

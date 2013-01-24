@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'CheckrIcons';
-  src: url(font-path('CheckrIcons.eot'));
-  src: url(font-path('CheckrIcons.svg') + '#CheckrIcons') format('svg'),
-       url(font-path('CheckrIcons.eot') + '?#iefix') format('embedded-opentype'),
-       url(font-path('CheckrIcons.woff')) format('woff'),
-       url(font-path('CheckrIcons.ttf')) format('truetype');
+  font-family: 'checkr';
+  src: url(font-path('checkr.eot'));
+  src: url(font-path('checkr.svg') + '#checkr') format('svg'),
+       url(font-path('checkr.eot') + '?#iefix') format('embedded-opentype'),
+       url(font-path('checkr.woff')) format('woff'),
+       url(font-path('checkr.ttf')) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-.icon { font-family: 'CheckrIcons'; speak: none; display: inline; float: left; -webkit-font-smoothing: antialiased; }
+.icon { font-family: 'checkr'; speak: none; float: left; -webkit-font-smoothing: antialiased; }
 
 .icon-list:before {
   content: "\e000";
@@ -22,4 +22,16 @@
 }
 .icon-logout:before {
   content: "\e003";
+}
+.icon-warn:before {
+  content: "\e004";
+}
+.icon-edit:before {
+  content: "\e005";
+}
+.icon-private:before {
+  content: "\e006";
+}
+.icon-cta:before {
+  content: "\e007";
 }

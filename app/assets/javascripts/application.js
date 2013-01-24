@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require rubberband.min
 
 $(function () {
 
-  $('.edit_item input[type="submit"]').parent().remove();
+  $('.edit_item .checkbox-save').parent().remove();
 
   $('.edit_item input[type="checkbox"]').bind('click', function() {
     $(this).parents('form').submit();

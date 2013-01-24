@@ -29,7 +29,10 @@
         <div class="admin">
           <ul>
             <li><%= link_to 'edit', edit_list_path(list), class: :cta, role: :link %></li>
-            <li><%= link_to 'delete', list_path(list), { method: :delete, class: :warn, role: :link } %></li>
+            <li>
+              <%= link_to 'delete', list_path(list), 
+              { method: :delete, confirm: 'Are you sure? There\'s no going back after', class: :warn, role: :link } %>
+            </li>
             <li><%= list.is_public ? :public : :private %></li>
           </ul>
         </div>

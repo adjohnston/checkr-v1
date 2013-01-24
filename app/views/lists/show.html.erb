@@ -1,4 +1,4 @@
-<%= link_to 'Back to Lists', lists_path, { class: :btn, role: :link } %>
+<%= link_to 'Back to Lists', lists_path, { class: %w[btn pad], role: :link } %>
 
 <hr />
 
@@ -7,7 +7,7 @@
   <p><%= count_checked_items(@list) %></p>
 </header>
 
-<%= simple_format(@list.desc) %>
+<%= simple_format(@list.desc) if @list.desc? %>
 
 <hr />
 
@@ -28,14 +28,17 @@
 
         <div class="item-details">
           <h1><%= item.name %></h1>
-          <%= raw("<p class=\"item-url\">#{item.url}</p>") %>
+          <%= raw("<p class=\"item-url\">#{item.url}</p>") if item.url? %>
           <%= simple_format(item.desc) if item.desc? %>
         </div>
 
         <% if user_signed_in? %>
           <ul class="admin">
             <li><%= link_to :edit, edit_list_item_path(item.list_id, item), role: :link %></li>
-            <li><%= link_to :delete, list_item_path(item.list_id, item), { method: :delete, role: :link } %></li>
+            <li>
+              <%= link_to :delete, list_item_path(item.list_id, item), 
+                  { method: :delete, confirm: 'Are you sure? There\'s no going back after', role: :link } %>
+            </li>
           </ul>
         <% end %>
       </article>

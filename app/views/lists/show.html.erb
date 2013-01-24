@@ -1,4 +1,4 @@
-<%= link_to 'Back to Lists', lists_path, { class: %w[btn pad], role: :link } %>
+<%= link_to 'Back to Lists', user_signed_in? ? lists_path : :back, { class: %w[btn pad], role: :link } %>
 
 <hr />
 

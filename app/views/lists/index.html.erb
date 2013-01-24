@@ -26,16 +26,16 @@
       <%= simple_format(list.desc, class: :desc) %>
 
       <% if user_signed_in? %>
-        <div class="admin">
-          <ul>
-            <li><%= link_to raw('<span class="icon icon-edit"></span>edit'), edit_list_path(list), class: :cta, role: :link %></li>
-            <li>
-              <%= link_to raw('<span class="icon icon-warn"></span>delete'), list_path(list), 
-              { method: :delete, confirm: 'Are you sure? There\'s no going back after', class: :warn, role: :link } %>
-            </li>
-            <li><%= raw('<span class="icon icon-private"></span>private') if !list.is_public? %></li>
-          </ul>
-        </div>
+        <ul class="admin">
+          <li><%= link_to raw('<span class="icon icon-edit"></span>edit'), edit_list_path(list), class: :cta, role: :link %></li>
+          
+          <li>
+            <%= link_to raw('<span class="icon icon-warn"></span>delete'), list_path(list), 
+            { method: :delete, confirm: 'Are you sure? There\'s no going back after', class: :warn, role: :link } %>
+          </li>
+          
+          <li><%= raw('<span class="icon icon-private"></span>private') if !list.is_public? %></li>
+        </ul>
       <% end %>
 
     </article>

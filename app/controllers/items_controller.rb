@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item = @list.items.new(params[:item])
 
     if @item.save
-      redirect_to list_path(hyphenate(@list.name)), notice: "#{@item.name} has been added"
+      redirect_to list_path(hyphenate(@list.name)), notice: "'#{@item.name}' has been added"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     @item = @list.items.find(params[:id])
 
     if @item.update_attributes(params[:item])
-      redirect_to list_path(hyphenate(@list.name)), notice: "#{@item.name} updated"
+      redirect_to list_path(hyphenate(@list.name)), notice: "'#{@item.name}' updated"
     else
       render :edit
     end

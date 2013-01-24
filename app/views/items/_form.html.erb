@@ -1,7 +1,7 @@
 <%= form_for [@list, @item] do |f| %>
   <% if @item.errors.any? %>
     <div id="errors">
-      <p>Oh no! There were <%= pluralize @item.errors.count, 'errors' %></p>
+      <p><span class="icon icon-warn"></span>Oh no! There were <%= pluralize @item.errors.count, 'errors' %></p>
 
       <ul>
         <% @item.errors.full_messages.each do |msg| %>

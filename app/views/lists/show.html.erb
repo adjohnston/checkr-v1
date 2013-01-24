@@ -21,23 +21,24 @@
             <ol>
               <li><%= f.check_box :is_checked %></li>
 
-              <li><%= f.submit :Save, class: :btn %></li>
+              <li><%= f.submit :Save, class: %w[btn btn-cta checkbox-save] %></li>
             </ol>
           </fieldset>
         <% end %>
 
         <div class="item-details">
           <h1><%= item.name %></h1>
-          <%= raw("<p class=\"item-url\">#{item.url}</p>") if item.url? %>
+          <%= raw("<a href=\"#{item.url}\" class=\"item-url\"><span class=\"icon icon-link\"></span>#{item.url}</a>") if item.url? %>
           <%= simple_format(item.desc) if item.desc? %>
         </div>
 
         <% if user_signed_in? %>
           <ul class="admin">
-            <li><%= link_to :edit, edit_list_item_path(item.list_id, item), role: :link %></li>
+            <li><%= link_to raw('<span class="icon icon-edit"></span>edit'), edit_list_item_path(item.list_id, item), 
+                    { class: :cta, role: :link } %></li>
             <li>
-              <%= link_to :delete, list_item_path(item.list_id, item), 
-                  { method: :delete, confirm: 'Are you sure? There\'s no going back after', role: :link } %>
+              <%= link_to raw('<span class="icon icon-warn"></span>delete'), list_item_path(item.list_id, item), 
+                  { method: :delete, confirm: 'Are you sure? There\'s no going back after', class: :warn, role: :link } %>
             </li>
           </ul>
         <% end %>

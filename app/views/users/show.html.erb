@@ -35,9 +35,12 @@
     <h1>Delete Account</h1>
   </header>
 
-  <p>If you wish to delete your account, you can do so by clicking the button below. Please be aware that this change is permaneant, all information, lists and items will be lost and cannot this cannot be undone. To use the Checkr again you will need to sign up once more.</p>
+  <p>If you wish to delete your account, you can do so by clicking the button below. Please be aware that this change is permaneant, all information, lists and items will be lost and cannot this cannot be undone.</p>
+
+  <p>To use the Checkr again you will need to sign up once more.</p>
 
   <hr />
 
-  <%= link_to 'Delete my Account', registration_path(@user), { method: :delete, class: %w[btn btn-warn pad], role: :link } %>
+  <%= link_to 'Delete my Account', registration_path(@user), 
+      { method: :delete, confirm: 'Are you sure?', class: %w[btn btn-warn pad], role: :link } %>
 </article>

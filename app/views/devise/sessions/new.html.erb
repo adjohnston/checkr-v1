@@ -2,6 +2,12 @@
   <h1>Login</h1>
 </header>
 
+<hr />
+
+<p>If you have an account, type in your email address and password to gain access to your lists.</p>
+
+<p>If you don't have an account you can get one, use the sign up button below.</p>
+
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <fieldset>
     <legend>Login</legend>
@@ -24,7 +30,7 @@
         </li>
       <% end -%>
 
-      <li><%= f.submit :Login, class: [:btn, 'btn-lrg', 'btn-cta'] %></li>
+      <li><%= f.submit :Login, class: %w[btn btn-lrg btn-cta] %></li>
     </ol>
   </fieldset>
 <% end %>

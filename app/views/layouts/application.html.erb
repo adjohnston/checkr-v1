@@ -47,16 +47,12 @@
           <div id="notice">
             <span class="icon icon-tick"></span><%= notice %>
           </div>
-
-          <hr />
         <% end %>
 
         <% if alert %>
           <div id="alert">
-            <span class="icon icon-alert"></span><%= alert %>
+            <span class="icon icon-warn"></span><%= alert %>
           </div>
-
-          <hr />
         <% end %>
       
         <%= yield %>

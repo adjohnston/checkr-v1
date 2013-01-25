@@ -1,10 +1,10 @@
-<header>
-  <h1>New List</h1>
-</header>
+<%= link_to 'Back to Lists', :back, { class: %w[btn pad], role: :link } %>
 
 <hr />
 
-<%= link_to "Back to #{@list.name}", list_path(hyphenate(@list.name)), { class: %w[btn pad], role: :link } %>
+<header>
+  <h1>New List</h1>
+</header>
 
 <hr />
 

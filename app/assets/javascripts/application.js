@@ -13,13 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require rubberband.min
+//= require_tree
 
 $(function () {
 
-  $('.edit_item .checkbox-save').parent().remove();
-
-  $('.edit_item input[type="checkbox"]').bind('click', function() {
-    $(this).parents('form').submit();
-  });
+  // hide notice after a few seconds
+  $('#notice').delay(3000).slideUp();
 
 });

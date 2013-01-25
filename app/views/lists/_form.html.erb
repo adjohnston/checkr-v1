@@ -3,11 +3,11 @@
     <div id="errors">
       <p><span class="icon icon-warn"></span>Oops! There was <%= pluralize(@list.errors.count, 'error') %>
 
-      <ol>
+      <ul>
         <% @list.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-      </ol>
+      </ul>
     </div>
   <% end %>
   

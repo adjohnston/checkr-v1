@@ -1,2 +1,7 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+// Hide checkbox save button if js
+$('.edit_item .checkbox-save').parent().remove();
+
+// submit the form when changed
+$('.edit_item input[type="checkbox"]').bind('click', function() {
+  $(this).parents('form').submit();
+});

@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require rubberband.min
+//= require raphael.min
 //= require_tree
 
 $(function () {
@@ -21,3 +21,5 @@ $(function () {
   $('#notice').delay(3000).slideUp();
 
 });
+
+rubberband.options({ mobile: 359 });

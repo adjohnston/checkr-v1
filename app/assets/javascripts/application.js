@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require raphael.min
+//= require modernizr.min
 //= require_tree
 
 $(function () {
@@ -20,6 +21,11 @@ $(function () {
   // hide notice after a few seconds
   $('#notice').delay(3000).slideUp();
 
+  // add uniform to checkboxes
+  $('input[type=checkbox]').uniform();
+
 });
+
+
 
 rubberband.options({ mobile: 359 });

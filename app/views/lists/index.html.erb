@@ -13,6 +13,10 @@
 
   <% @lists.each do |list| %>
     <article id="list-<%= list.id %>">
+      <div class="graph">
+        <div class="graph-progress"></div>
+      </div>
+      
       <%= link_to '>', list_path(hyphenate(list.name)), { class: %w[btn-link hide-mobile], role: :link } %>
 
       <header>
@@ -20,10 +24,8 @@
           <%= link_to list.name, user_signed_in? ? list_path(hyphenate(list.name)) : 
                                                    user_list_path(params[:username], hyphenate(list.name)), role: :link %>
         </h1>
-        
-        <p><%= count_checked_items(list) %></p>
 
-        <div class="graph"></div>
+        <p><%= count_checked_items(list) %></p>
       </header>
 
       <%= simple_format(list.desc, class: :desc) %>

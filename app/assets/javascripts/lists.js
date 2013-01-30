@@ -9,8 +9,10 @@ $('.edit_item input[type="checkbox"]').bind('click', function() {
 // if browser has no css-calc
 if (!$('html').hasClass('csscalc')) {
 
-  $('.item-details').each(function (i, e) {
-    $(e).css('width', $(e).width() - $(e).prev('form').width());
+  $(window).bind('resize', function() {
+    $('.item-details').each(function (i, e) {
+      $(e).css('width', $(e).width() - $(e).prev('form').width());
+    });
   });
 
 };

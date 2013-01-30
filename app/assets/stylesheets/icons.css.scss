@@ -21,9 +21,6 @@
 .icon-logout:before {
   content: "\e002";
 }
-.icon-login:before {
-  content: "\e003";
-}
 .icon-error:before {
   content: "\e004";
 }
@@ -41,4 +38,10 @@
 }
 .icon-warn:before {
   content: "\e009";
+}
+.icon-pull-tab:before {
+  content: "\e003";
+}
+.icon-login:before {
+  content: "\e00b";
 }

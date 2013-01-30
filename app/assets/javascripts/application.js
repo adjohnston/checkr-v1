@@ -25,7 +25,3 @@ $(function () {
   $('input[type=checkbox]').uniform();
 
 });
-
-
-
-rubberband.options({ mobile: 359 });

@@ -18,7 +18,7 @@
 $grey:  #e5e5e5;
 $green: #b4c596;
 $red:   #eb6464;
-$dark:  #404a52;
+$dark:  #42484c;
 
 /* mixins */
 
@@ -38,19 +38,21 @@ $dark:  #404a52;
   transition:         $attr ease;
 }
 
-@mixin lessWidth($attr) {
-  width: 100%;
-  width: -moz-calc(#{$attr});
-  width: -webkit-calc(#{$attr});
-  width: -ms-calc(#{$attr});
-  width: -o-calc(#{$attr});
-  width: calc(#{$attr});
+@mixin calc($attr, $val) {
+  #{$attr}: 100%;
+  #{$attr}: -moz-calc(#{$val});
+  #{$attr}: -webkit-calc(#{$val});
+  #{$attr}: -ms-calc(#{$val});
+  #{$attr}: -o-calc(#{$val});
+  #{$attr}: calc(#{$val});
 }
+
+* { @include transition((width .5s, height .5s, margin .5s, padding .5s, right .5s)); }
 
 :focus { outline: 0; }
 
 body { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
-hr   { margin: -1px 0; border: 1px solid $grey; border-color: $grey white white white; }
+hr   { margin: -1px 0; border: 1px solid $grey; border-color: $grey transparent transparent transparent; }
 p    { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; }
 dl   { margin: 1.5em 0; overflow: hidden; }
 dt   { padding: 0 0.75em; font-weight: 400; @include border-box; }
@@ -62,6 +64,7 @@ a {
   &.cta:hover  { color: $green; }
   &.warn:hover { color: $red; }
 }
+
 small  { font-size: 0.75em; line-height: 2em; }
 b      { font-weight: 400; }
 i      { font-style: italic; }
@@ -70,6 +73,7 @@ label  {
   display: none;
   &.show-label { display: inline-block; }
 }
+
 fieldset {
   li { 
     padding: .75em;
@@ -91,7 +95,6 @@ textarea {
 
   &:focus { text-align: left; }
 }
-
 
 header[role="banner"] {
   background-color: $dark; color: #fff; overflow: hidden;
@@ -144,7 +147,7 @@ article {
   }
 
   .item-details { 
-    @include lessWidth('100% - 3em'); float: left;
+    @include calc(width, '100% - 3em'); float: left;
 
     h1        { margin: .5em 0; padding: 0 .5em; font-size: 1.5em; line-height: 2em; }
     .item-url { 
@@ -156,12 +159,17 @@ article {
   }
 
   .admin {  
-    width: 5em; height: 100%; padding: .75em 0; background-color: $grey; opacity: .1; position: absolute; top: 0; right: 0;
-    @include transition(opacity .5s);
+    width: 6.5em; @include calc(height, '100% - .375em'); padding: .75em 0 .75em 1.5em; background-color: $grey; 
+    position: absolute; bottom: 0; right: -5em; overflow: visible; @include border-box;
 
-    &:hover { opacity: .8; }
+    &:hover { right: 0; }
 
-    li    { padding: 0 1em; font-size: 0.75em; line-height: 2em; }
+    li { 
+      padding: 0 1em; font-size: 0.75em; line-height: 2em; 
+
+      &.pull-tab { width: 2em; height: 100%; padding: 0; background-color: $grey; text-align: center; position: absolute; 
+                   top: 0; left: 0; }
+    }
     .icon { width: auto; margin-right: .5em; line-height: 2em; }
   }
 }
@@ -177,8 +185,8 @@ footer[role="contentinfo"] {
 .btn { 
   margin: .875em 0; padding: 0 .875em; font: 500 .875em/2.57143em roboto, "helvetica neue", helvetica, arial, sans-serif; 
   height: 2.57143em; background-color: $grey; border: 1px solid darken($grey, 10%); border-radius: 4px; 
-  box-shadow: inset 0 1px 0 lighten($grey, 10%); text-shadow: 0 -1px 0 lighten($grey, 10%); text-decoration: none; 
-  color: darken($grey, 50%); cursor: pointer; display: inline-block; @include border-box;
+  box-shadow: inset 0 1px 0 lighten($grey, 10%), 0 2px 2px $grey; text-shadow: 0 -1px 0 lighten($grey, 10%); 
+  text-decoration: none; color: darken($grey, 50%); cursor: pointer; display: inline-block; @include border-box;
   @include transition((color .5s, border-color .5s));
 
   &:hover { border-color: darken($grey, 25%); color: darken($grey, 70%); }
@@ -215,9 +223,7 @@ footer[role="contentinfo"] {
 }
 
 .checker {
-  span {
-
-  }
+  span  { }
   input { width: 1.8182em; height: 1.8182em; margin: 0; }
 }
 

@@ -16,7 +16,7 @@
       <div class="graph">
         <div class="graph-progress"></div>
       </div>
-      
+
       <%= link_to '>', list_path(hyphenate(list.name)), { class: %w[btn-link hide-mobile], role: :link } %>
 
       <header>
@@ -32,6 +32,8 @@
 
       <% if user_signed_in? %>
         <ul class="admin">
+          <li class="pull-tab"></li>
+
           <li><%= link_to raw('<span class="icon icon-edit"></span>edit'), edit_list_path(list), class: :cta, role: :link %></li>
           
           <li>

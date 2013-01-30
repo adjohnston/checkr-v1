@@ -34,6 +34,8 @@
 
         <% if user_signed_in? %>
           <ul class="admin">
+            <li class="pull-tab"></li>
+            
             <li><%= link_to raw('<span class="icon icon-edit"></span>edit'), edit_list_item_path(item.list_id, item), 
                     { class: :cta, role: :link } %></li>
             <li>

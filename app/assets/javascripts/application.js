@@ -27,14 +27,23 @@ $(function () {
   // if browser has no css-calc
   if (!$('html').hasClass('csscalc')) {
 
-    $(window).bind('resize', function() {
+    var calcElements = (function () {
       $('.item-details').each(function (i, v) {
-        $(v).css('width', $(v).width() - $(v).prev('form').width());
+        var itemDetails = $(v);
+
+        itemDetails.css('width', itemDetails.width() - itemDetails.prev('form').width());
       });
 
       $('.pull-tab').each(function (i, v) {
-        $(v).css('top', '50% - .75em');
+        var pullTag = $(v),
+            pullTagIcon = pullTag.find('.icon');
+
+        pullTagIcon.css('top', pullTag.height() / 2 - pullTagIcon.height() / 2);
       });
+    } ());
+
+    $(window).bind('resize', function() {
+      calcElements();
     });
 
   };

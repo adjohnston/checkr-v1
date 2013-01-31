@@ -87,7 +87,7 @@ input[type="password"],
 input[type="email"],
 select,
 textarea { font: 300 .875em/2.5725em roboto, "helvetica neue", helvetica, arial, sans-serif; width: 100%;
-           height: 2.5725em; margin: 0; padding: 0; border: 1px solid $grey; border-radius: 4px; box-shadow: none; 
+           height: 2.5725em; margin: 0; padding: 0; background-image: none; border: 1px solid $grey; border-radius: 4px; 
            text-align: center; display: block; @include border-box; }
 
 textarea { 

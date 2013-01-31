@@ -88,10 +88,10 @@ input[type="email"],
 select,
 textarea { font: 300 .875em/2.5725em roboto, "helvetica neue", helvetica, arial, sans-serif; width: 100%;
            height: 2.5725em; margin: 0; padding: 0; border: 1px solid $grey; border-radius: 4px; text-align: center; 
-           display: block; @include border-box; }
+           display: block; @include border-box; -moz-appearance: none; -webkit-appearance: none; }
 
 textarea { 
-  height: 7.7175em; resize: none; line-height: 1.715em; 
+  height: 7.7175em; resize: none; line-height: 1.715em; -moz-appearance: none; -webkit-appearance: none;
 
   &:focus { text-align: left; }
 }
@@ -193,9 +193,9 @@ footer[role="contentinfo"] {
 .btn { 
   margin: .875em 0; padding: 0 .875em; font: 500 .875em/2.57143em roboto, "helvetica neue", helvetica, arial, sans-serif; 
   height: 2.57143em; background-color: $grey; border: 1px solid darken($grey, 10%); border-radius: 4px; 
-  box-shadow: inset 0 1px 0 lighten($grey, 10%), 0 2px 2px $grey; text-shadow: 0 -1px 0 lighten($grey, 10%); 
+  box-shadow: inset 0 1px 0 lighten($grey, 10%); text-shadow: 0 -1px 0 lighten($grey, 10%); 
   text-decoration: none; color: darken($grey, 50%); cursor: pointer; display: inline-block; @include border-box;
-  @include transition((color .5s, border-color .5s));
+  @include transition((color .5s, border-color .5s)); -moz-appearance: none; -webkit-appearance: none;
 
   &:hover { border-color: darken($grey, 25%); color: darken($grey, 70%); }
   &.pad { margin-right: .875em; margin-left: .875em; }

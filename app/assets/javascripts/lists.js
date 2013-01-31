@@ -6,24 +6,13 @@ $('.edit_item input[type="checkbox"]').bind('click', function() {
   $(this).parents('form').submit();
 });
 
-// if browser has no css-calc
-if (!$('html').hasClass('csscalc')) {
-
-  $(window).bind('resize', function() {
-    $('.item-details').each(function (i, e) {
-      $(e).css('width', $(e).width() - $(e).prev('form').width());
-    });
-  });
-
-};
-
 // show progress bar
-$('.graph').each(function (i, e) {
+$('.graph').each(function (i, v) {
 
-  var unchecked = parseInt($(e).parent('article').find('.total-items-count').text(), 10),
-      checked   = parseInt($(e).parent('article').find('.checked-items-count').text(), 10),
+  var unchecked = parseInt($(v).parent('article').find('.total-items-count').text(), 10),
+      checked   = parseInt($(v).parent('article').find('.checked-items-count').text(), 10),
       pcent     = 100 / unchecked * checked + '%';
 
-  $(e).show().find('.graph-progress').css('width', pcent);
+  $(v).show().find('.graph-progress').css('width', pcent);
 
 });

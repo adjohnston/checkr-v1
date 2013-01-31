@@ -24,4 +24,19 @@ $(function () {
   // add uniform to checkboxes
   $('input[type=checkbox]').uniform();
 
+  // if browser has no css-calc
+  if (!$('html').hasClass('csscalc')) {
+
+    $(window).bind('resize', function() {
+      $('.item-details').each(function (i, v) {
+        $(v).css('width', $(v).width() - $(v).prev('form').width());
+      });
+
+      $('.pull-tab').each(function (i, v) {
+        $(v).css('top', '50% - .75em');
+      });
+    });
+
+  };
+
 });

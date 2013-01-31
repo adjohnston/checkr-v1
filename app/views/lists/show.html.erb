@@ -57,10 +57,14 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <header>
-    <h1>Add Item</h1>
-  </header>
+  <article id="add-item">
+    <header>
+      <h1>Add Item</h1>
+    </header>
 
-  <%= render template: 'items/_form' %>
+    <p class="no-top-margin">Add a new item here for it to be included in the list above.</p>
 
+    <%= render template: 'items/_form' %>
+
+  </article>
 <% end %>

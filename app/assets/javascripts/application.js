@@ -22,7 +22,7 @@ $(function () {
   $('#notice').delay(3000).slideUp();
 
   // add uniform to checkboxes
-  $('input[type=checkbox]').uniform();
+  $('#items input[type=checkbox]').uniform();
   $('.checker').find('span').addClass('icon');
 
   // if browser has no css-calc
@@ -49,6 +49,6 @@ $(function () {
 
   };
 
-  rubberband.options({ mobile: 479 });
+  //rubberband.options({ mobile: 479 });
 
 });

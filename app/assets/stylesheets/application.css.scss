@@ -89,6 +89,9 @@ button,
 select, 
 textarea { background-image: none; }
 
+input[type="submit"]   { -webkit-appearance: button; }
+input[type="checkbox"] { width: 2.182em; height: 2.182em; margin: 0 4px 0 0; float: left; }
+
 input[type="text"],
 input[type="password"],
 input[type="email"],

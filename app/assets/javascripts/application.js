@@ -49,4 +49,6 @@ $(function () {
 
   };
 
+  rubberband.options({ mobile: 479 });
+
 });

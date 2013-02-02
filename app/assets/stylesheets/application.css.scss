@@ -48,6 +48,14 @@ $home:  #ffa446;
   #{$attr}: calc(#{$val});
 }
 
+@mixin gradient($attr) {
+  background-image: -moz-linear-gradient($attr);
+  background-image: -webkit-linear-gradient($attr);
+  background-image: -ms-linear-gradient($attr);
+  background-image: -o-linear-gradient($attr);
+  background-image: linear-gradient($attr);
+}
+
 * { @include transition((width .5s, height .5s, margin .5s, padding .5s, background-color .5s, right .5s, opacity .5s,
                          box-shadow .5s, border-color .5s, color .5s)); }
 
@@ -90,7 +98,7 @@ select,
 textarea { background-image: none; }
 
 input[type="submit"]   { -webkit-appearance: button; }
-input[type="checkbox"] { width: 2.182em; height: 2.182em; margin: 0 4px 0 0; float: left; }
+input[type="checkbox"] { width: 1.45454em; height: 1.45454em; margin: 4px 4px 0 0; float: left; }
 
 input[type="text"],
 input[type="password"],
@@ -180,13 +188,13 @@ article {
     background-color: rgba($grey, .25); position: absolute; bottom: 0; right: -5em; overflow: visible; @include border-box;
 
     &:hover { 
-      width: 5em; padding-left: 0; background-color: rgba($grey, 1); right: 0; 
+      width: 100%; padding-left: 0; background-color: rgba($dark, .9); color: $grey; right: 0;
 
       .icon-pull-tab { opacity: 0; }
     }
 
     li { 
-      padding: 0 1em; font-size: 0.75em; line-height: 2em; 
+      width: 4.5em; padding: 0 1em; font-size: 0.75em; line-height: 2em; float: right; clear: right;
 
       &.pull-tab { 
         width: 2em; height: 100%; padding: 0; text-align: center; position: absolute; top: 0; left: 0; 

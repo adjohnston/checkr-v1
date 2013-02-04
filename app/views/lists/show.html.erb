@@ -2,12 +2,14 @@
 
 <hr />
 
-<header>
-  <h1><%= @list.name %></h1>
-  <p><%= count_checked_items(@list) %></p>
-</header>
+<div class="list-details">
+  <header>
+    <h1><%= @list.name %></h1>
+    <p><%= count_checked_items(@list) %></p>
+  </header>
 
-<%= simple_format(@list.desc) if @list.desc? %>
+  <%= simple_format(@list.desc, class: :desc) %>
+</div>
 
 <hr />
 

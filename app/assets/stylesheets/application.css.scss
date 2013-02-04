@@ -151,7 +151,7 @@ section {
     overflow: hidden;
 
     h1 { margin: 0.75em 0; padding: 0 0.375em; font-size: 2em; line-height: 1.5em; float: left; }
-    p  { margin: -1.08333em 0 0; padding: 0 1em; font-size: 0.75em; line-height: 2em; color: lighten($dark, 20%);
+    p  { margin: -1.08333em 0 1.08333em; padding: 0 1em; font-size: 0.75em; line-height: 2em; color: lighten($dark, 20%);
          float: left; clear: left; }
     #list-count { 
       margin: 1.5em 0; line-height: 3em; float: left; overflow: hidden;
@@ -258,6 +258,12 @@ footer[role="contentinfo"] {
   .checked:before { content: "\e00c"; }
   input           { width: 1.8182em; height: 1.8182em; margin: 2px; opacity: 0; position: absolute; top: 0; left: 0;
                     cursor: pointer; }
+}
+
+.list-details {
+  h1 { margin-bottom: 0 }
+  p  { margin: 0; }
+  .desc { margin: 1.5em 0; }
 }
 
 #notice { padding: .75em; font-size: 1em; line-height: 1.5em; background-color: $green; color: lighten($green, 30%); }

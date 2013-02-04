@@ -19,14 +19,14 @@
         <%= form_for item, { remote: true, url: update_checkbox_path(@list.user_id, @list.id, item.id), method: :put } do |f| %>
           <fieldset>
             <ol>
-              <li><%= f.check_box :is_checked %></li>
+              <li><%= f.check_box :is_checked, { id: "item_is_checked_#{item.id}" } %></li>
 
               <li><%= f.submit :Save, class: %w[btn btn-cta checkbox-save] %></li>
             </ol>
           </fieldset>
 
           <div class="item-details">
-            <h1><%= f.label :is_checked, item.name %></h1>
+            <h1><%= label_tag "item_is_checked_#{item.id}", item.name %></h1>
             <%= raw("<a href=\"#{item.url}\" class=\"item-url\"><span class=\"icon icon-link\"></span>#{item.url}</a>") if item.url? %>
             <%= simple_format(item.desc) if item.desc? %>
           </div>

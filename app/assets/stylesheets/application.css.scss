@@ -171,18 +171,6 @@ article {
     p  { margin: 0; }
   }
 
-  .item-details { 
-    @include calc(width, '100% - 3em'); float: left;
-
-    h1        { margin: .5em 0; padding: 0 .5em; font-size: 1.5em; line-height: 2em; }
-    .item-url { 
-      width: 100%; margin: -1em 0 1em; padding: 0 1em; font-size: 0.75em; line-height: 2em; color: lighten($dark, 20%); 
-      float: left; 
-
-      .icon { width: 2em; line-height: 2em; }
-    }
-  }
-
   .admin {  
     width: 6.5em; height: 100%; padding: .75em 0 .75em 1.5em; background-color: $grey;
     background-color: rgba($grey, .25); position: absolute; bottom: 0; right: -5em; overflow: visible; @include border-box;
@@ -285,8 +273,19 @@ footer[role="contentinfo"] {
 }
 
 #items {
-  fieldset { width: 3em; margin: .75em 0; float: left; }
-  label    { display: block; }
+  fieldset      { width: 3em; margin: .75em 0; float: left; }
+  label         { display: block; }
+  .item-details { 
+    @include calc(width, '100% - 3em'); float: left;
+
+    h1        { margin: .5em 0; padding: 0 .5em; font-size: 1.5em; line-height: 2em; }
+    .item-url { 
+      width: 100%; margin: -1em 0 1em; padding: 0 1em; font-size: 0.75em; line-height: 2em; color: lighten($dark, 20%); 
+      float: left; 
+
+      .icon { width: 2em; line-height: 2em; }
+    }
+  }
 }
 
 #home {

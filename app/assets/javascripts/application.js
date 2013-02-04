@@ -32,7 +32,7 @@ $(function () {
       $('.item-details').each(function (i, v) {
         var itemDetails = $(v);
 
-        itemDetails.css('width', itemDetails.width() - itemDetails.prev('form').width());
+        itemDetails.css('width', itemDetails.parents('article').width() - itemDetails.prev('fieldset').width());
       });
 
       $('.pull-tab').each(function (i, v) {

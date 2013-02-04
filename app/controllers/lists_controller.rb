@@ -16,7 +16,7 @@ class ListsController < ApplicationController
                               User.where(username: params[:username]).first
                               .lists.where(name: spacify(params[:name])).first
 
-    @items = @list.items.all(order: :created_at)
+    @items = @list.items.all(order: 'name ASC')
     @item = @list.items.new
   end
 

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require raphael.min
 //= require modernizr.min
+//= require uniform
 //= require_tree
 
 $(function () {

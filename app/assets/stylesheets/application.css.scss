@@ -65,11 +65,11 @@ $home:  #ffa446;
 }
 
 * { @include transition((width .5s, height .5s, margin .5s, padding .5s, background-color .5s, right .5s, opacity .5s,
-                         box-shadow .5s, border-color .5s, color .5s)); }
+                         box-shadow .5s, border-color .5s, color .5s, font-size .5s)); }
 
 :focus { outline: 0; }
 
-body { background: #fff; font: 300 16px/24px roboto, "helvetica neue", helvetica, arial, sans-serif; color: $dark; }
+body { background: #fff; font: 300 16px/24px roboto, helvetica, arial, sans-serif; color: $dark; }
 hr   { margin: -1px 0; border: 1px solid $grey; border-color: $grey transparent transparent transparent; clear: both; }
 h2,
 p    { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; }
@@ -144,7 +144,7 @@ header[role="banner"] {
   nav {
     margin: 1.0625em 0; float: right;
 
-    ol { overflow: hidden; }
+    ul { overflow: visible; }
     li { margin: 0 .25em 0 0; float: left; }
     a { 
       padding: .375em; border: 1px solid darken($dark, 10%); border-radius: 4px;
@@ -324,7 +324,8 @@ footer[role="contentinfo"] {
          text-align: center; text-shadow: 0 1px 0 darken($home, 5%), 0 2px 0 darken($home, 5%), 0 3px 0 darken($home, 5%),
          0 4px 0 darken($home, 5%), 0 5px 0 darken($home, 5%); float: none; 
          @include transform((scaleY(1.25) skewX(10deg))); }
-    h2 { margin: .75em 0; padding: .75em; background-color: darken($home, 5%); text-align: center; }
+    h2 { margin: 0.6875em 0; padding: .75em; background-color: darken($home, 5%); border: 1px solid darken($home, 10%);
+         box-shadow: inset 0 1px 0 lighten($home, 5%); text-align: center; }
   }
 
   #what-it-does {
@@ -332,6 +333,7 @@ footer[role="contentinfo"] {
   }
 }
 
+/* 360 pixel */
 @media screen and (min-width: 22.5em) {
 
   header[role="banner"] nav { 
@@ -340,10 +342,11 @@ footer[role="contentinfo"] {
     li { margin: 0 0 0 .375em; }
   }
 
-  #home header h1 { margin: .706em 0 0; padding: 0 0.1765em; font-size: 4.25em; line-height: 1.765em; }
+  #home header h1 { margin: 0.75em 0 0; padding: 0 0.1875em; font-size: 4em; line-height: 1.5em; }
 
 }
 
+/* 480 pixel */
 @media screen and (min-width: 30em) {
 
   dl { overflow: hidden; }
@@ -359,6 +362,7 @@ footer[role="contentinfo"] {
 
 }
 
+/* 540 pixel */
 @media screen and (min-width: 33.75em) {
 
   input[type="text"],
@@ -384,29 +388,66 @@ footer[role="contentinfo"] {
   }
 }
 
+/* 600 pixel - large phone, small tablet */
+@media screen and (min-width: 37.5em) {
+
+}
+
+
+/* 768 pixel - tablet */
+@media screen and (min-width: 48em) {
+
+}
+
+/* 992 pixel - desktop */
 @media screen and (min-width: 62em) {
 
   body { background-color: lighten($grey, 8%); }
 
   header[role=banner],
   footer[role=contentinfo],
-  #what-it-does { margin: 0 -16.66667%; padding: 0 16.66667%; }
+  #what-it-does,
+  #notice,
+  #alert { margin: 0 -16.66667%; padding: 0 16.66667%; }
 
   section[role=main] { background-color: #fff; box-shadow: -1px 0 0 $grey, -2px 0 0 #fff, 1px 0 0 $grey, 2px 0 0 #fff; }
 
-  .csscalc #what-it-does h2 { margin: 4.5em .75em; @include calc(width, '50% - 1.5em'); }
+  .csscalc #what-it-does h2 { margin: 4.4375em .75em; @include calc(width, '50% - 1.5em'); }
 
   #wrapper { margin: 0 12.5%; }
 
   #home hr { margin: -.375em .75em; border: .375em dashed; border-color: lighten($home, 10%) transparent transparent;
              opacity: 1; }
 
-  #what-it-does hgroup {
-    overflow: hidden;
+  #what-it-does {
+    hgroup {
+      overflow: hidden;
 
-    h1 { margin: 0.63158em 0; padding: 0 0.15789em; font-size: 4.75em; line-height: 1.579em; width: 50%; 
-         float: left; @include border-box; }
-    h2 { width: 50%; margin: 4.5em 0; border-radius: 4px; float: left; @include border-box; }
+      h1 { margin: 0.63158em 0; padding: 0 0.15789em; font-size: 4.75em; line-height: 1.579em; width: 50%; 
+           float: left; @include border-box; }
+      h2 { width: 50%; margin: 4.4375em 0; border-radius: 4px; float: left; @include border-box; }
+    }
+
+    li h1 { 
+      margin: 1.3335em 0; padding: 0 0.66675em; font-size: 1.125em; line-height: 2.667em; font-style: italic;
+      text-align: center;
+
+      strong { font: 2.66667em satisfy, helvetica, arial, sans-serif; margin: 0 0 -0.75em -1em; 
+               text-shadow: 0 1px 0 darken($home, 5%), 0 2px 0 darken($home, 5%), 0 3px 0 darken($home, 5%); display: block; }
+    }
   }
+
+}
+
+/* 1248 pixel */
+@media screen and (min-width: 78em) {
+
+  header[role=banner],
+  footer[role=contentinfo],
+  #what-it-does,
+  #notice,
+  #alert { margin: 0 -30%; padding: 0 30%; }
+
+  #wrapper { margin: 0 18.75%; }
 
 }

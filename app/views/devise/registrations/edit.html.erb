@@ -2,6 +2,8 @@
   <h1>Edit Details</h1>
 </header>
 
+<hr />
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <% if resource.errors.count > 0 %>
     <div id="errors">
@@ -49,7 +51,7 @@
         <%= f.password_field :current_password, placeholder: 'Current Password' %>
       </li>
 
-      <li><%= f.submit "Update", class: [:btn, 'btn-cta'] %></li>
+      <li><%= f.submit "Update", class: %w[btn btn-cta btn-lrg] %></li>
     </ol>
   </fieldset>
 <% end %>

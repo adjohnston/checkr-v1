@@ -2,6 +2,10 @@
   <h1>Sign up</h1>
 </header>
 
+<hr />
+
+<p>To sign up, please fill in the form below. Your 'username' is used to view your public lists.</p>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <% if resource.errors.count > 0 %>
     <div id="errors">
@@ -44,7 +48,7 @@
         <%= f.password_field :password_confirmation, placeholder: 'Retype Password' %>
       </li>
 
-      <li><%= f.submit "Sign up", class: [:btn, 'btn-cta'] %></li>
+      <li><%= f.submit "Sign up", class: %w[btn btn-cta btn-lrg] %></li>
     </ol>
   </fieldset>
 <% end %>

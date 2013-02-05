@@ -81,9 +81,9 @@ a {
   text-decoration: none; color: inherit;
 
   &.cta:hover,
-  &.cta:focus  { color: $green; }
+  &.cta:active  { color: $green; }
   &.warn:hover,
-  &.warn:focus { color: $red; }
+  &.warn:active { color: $red; }
 }
 
 small  { font-size: 0.75em; line-height: 2em; }
@@ -115,14 +115,15 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 textarea { 
-  font: 300 .875em/2.5725em roboto, helvetica, arial, sans-serif; width: 100%; height: 2.5725em; margin: 0; padding: 0; 
-  border: 1px solid $grey; border-radius: 4px; text-align: center; display: block; @include border-box; 
+  font: 300 .875em/2.5725em roboto, helvetica, arial, sans-serif; width: 100%; height: 2.5725em; margin: 0; 
+  padding: 0 0 0 .8575em; border: 1px solid $grey; border-radius: 4px; text-align: center; display: block; 
+  @include border-box; 
 
   &:focus { border-color: $dark; }
 }
 
 textarea { 
-  height: 7.7175em; resize: none; line-height: 1.715em;
+  height: 5.145em; padding-top: 0.78571em; resize: none; line-height: 1.715em;
 
   &:focus { text-align: left; }
 }
@@ -151,7 +152,7 @@ header[role="banner"] {
       overflow: hidden; @include border-box; @include transition((background-color .5s, border-color .5s, box-shadow .5s));
 
       &:hover,
-      &:focus { background-color: lighten($dark, 10%); border-color: darken($dark, 20%); 
+      &:active { background-color: lighten($dark, 10%); border-color: darken($dark, 20%); 
                 box-shadow: inset 1px 1px 0 lighten($dark, 5%), inset -1px -1px 0 lighten($dark, 5%), 
                 inset 0 0 10px darken($dark, 5%), 0 1px 3px darken($dark, 10%); }
     }
@@ -159,7 +160,8 @@ header[role="banner"] {
 }
 
 section {
-  & > header { background-color: darken(white, 2%); }
+  & > header { background-color: lighten($grey, 8%); }
+
   header {
     overflow: hidden;
 
@@ -188,8 +190,8 @@ article {
     width: 6.5em; height: 100%; padding: .75em 0 .75em 1.5em; background-color: $grey;
     background-color: rgba($grey, .25); position: absolute; bottom: 0; right: -5em; overflow: visible; @include border-box;
 
-    &:hover,
-    &:focus { 
+    &:hover
+    &:active { 
       width: 100%; padding-left: 0; background-color: rgba($dark, .9); color: $grey; right: 0;
 
       .icon-pull-tab { opacity: 0; }
@@ -231,7 +233,7 @@ footer[role="contentinfo"] {
   @include transition((color .5s, border-color .5s)); @include gradient((transparent 50%, darken($grey, 4%) 50%));
 
   &:hover,
-  &:focus { border-color: darken($grey, 25%); color: darken($grey, 70%); }
+  &:active { border-color: darken($grey, 25%); color: darken($grey, 70%); }
   &.pad { margin-right: .875em; margin-left: .875em; }
 }
 
@@ -247,7 +249,7 @@ footer[role="contentinfo"] {
   @include gradient((transparent 50%, darken($green, 4%) 50%));
 
   &:hover,
-  &:focus { border-color: darken($green, 25%); color: lighten($green, 50%); }
+  &:active { border-color: darken($green, 25%); color: lighten($green, 50%); }
 }
 
 .btn-warn { 
@@ -256,7 +258,7 @@ footer[role="contentinfo"] {
   @include gradient((transparent 50%, darken($red, 4%) 50%));
 
   &:hover,
-  &:focus { border-color: darken($red, 25%); color: lighten($red, 50%); }
+  &:active { border-color: darken($red, 25%); color: lighten($red, 50%); }
 }
 
 .btn-link { margin: 1.5em .375em; font-size: 2em; line-height: 1.5em; width: 1.5em; background-color: $grey; 
@@ -313,11 +315,12 @@ footer[role="contentinfo"] {
 }
 
 #home {
+  hr { opacity: 0; }
   section { overflow: hidden; }
   header {
     background-color: $home; 
 
-    h1 { margin: 1.44em 0 0; padding: 0 0.261em; font: 2.875em/1.566em satisfy, helvetica, arial, sans-serif; 
+    h1 { margin: .522em 0 0; padding: 0 0.261em; font: 2.875em/1.566em satisfy, helvetica, arial, sans-serif; 
          text-align: center; text-shadow: 0 1px 0 darken($home, 5%), 0 2px 0 darken($home, 5%), 0 3px 0 darken($home, 5%),
          0 4px 0 darken($home, 5%), 0 5px 0 darken($home, 5%); float: none; 
          @include transform((scaleY(1.25) skewX(10deg))); }
@@ -337,9 +340,7 @@ footer[role="contentinfo"] {
     li { margin: 0 0 0 .375em; }
   }
 
-  #home header {
-    h1 { margin: .706em 0 0; padding: 0 0.1765em; font-size: 4.25em; line-height: 1.765em; }
-  }
+  #home header h1 { margin: .706em 0 0; padding: 0 0.1765em; font-size: 4.25em; line-height: 1.765em; }
 
 }
 
@@ -354,10 +355,16 @@ footer[role="contentinfo"] {
     .icon     { float: right; }
   }
 
+  #home header h1 { margin: 0.5em 0 0; padding: 0 0.125em; font-size: 6em; line-height: 1.5em; }
+
 }
 
 @media screen and (min-width: 33.75em) {
 
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea { text-align: left; }
   article {
     .list-details { width: 75%; @include calc(width, '100% - 5em'); float: left; }
     .admin { 
@@ -378,5 +385,28 @@ footer[role="contentinfo"] {
 }
 
 @media screen and (min-width: 62em) {
+
+  body { background-color: lighten($grey, 8%); }
+
+  header[role=banner],
+  footer[role=contentinfo],
+  #what-it-does { margin: 0 -16.66667%; padding: 0 16.66667%; }
+
+  section[role=main] { background-color: #fff; box-shadow: -1px 0 0 $grey, -2px 0 0 #fff, 1px 0 0 $grey, 2px 0 0 #fff; }
+
+  .csscalc #what-it-does h2 { margin: 4.5em .75em; @include calc(width, '50% - 1.5em'); }
+
+  #wrapper { margin: 0 12.5%; }
+
+  #home hr { margin: -.375em .75em; border: .375em dashed; border-color: lighten($home, 10%) transparent transparent;
+             opacity: 1; }
+
+  #what-it-does hgroup {
+    overflow: hidden;
+
+    h1 { margin: 0.63158em 0; padding: 0 0.15789em; font-size: 4.75em; line-height: 1.579em; width: 50%; 
+         float: left; @include border-box; }
+    h2 { width: 50%; margin: 4.5em 0; border-radius: 4px; float: left; @include border-box; }
+  }
 
 }

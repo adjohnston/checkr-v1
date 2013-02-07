@@ -333,7 +333,9 @@ footer[role="contentinfo"] {
 
     li h1 { margin: 0.66666em 0; padding: 0 0.33333em; font: 2.25em/2em satisfy, helvetica, arial, sans-serif; 
             text-align: center; text-shadow: 0 1px 0 darken($home, 5%), 0 2px 0 darken($home, 5%), 
-            0 3px 0 darken($home, 5%);  }
+            0 3px 0 darken($home, 5%); }
+
+    img { height: 9em; margin: 0 auto; padding: 0 .75em; display: block; }
   }
 }
 
